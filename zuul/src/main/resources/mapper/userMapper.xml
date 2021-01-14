@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.UserDao">
+
+    <select id="selectByName" resultType="com.jk.pojo.UserBean">
+        select * from  t_user where name =#{name}
+    </select>
+
+    <select id="findUserByName" resultType="com.jk.pojo.UserBean">
+        select * from t_user where phone=#{phone}
+    </select>
+
+    <!--注册-->
+    <insert id="addUser">
+        insert into t_user (name,pwd,phone,uimg)value(#{name},123,#{phone},"https://wy010428.oss-cn-beijing.aliyuncs.com/images/9b4ee2fa2d8a4017a29fe7a36522d87e")
+    </insert>
+</mapper>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap.css">
+	<link rel="stylesheet" href="../js/bootstrap/bootstrap3/css/bootstrap-theme.css">
+
+	<!-- 引入jquery文件 -->
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<!-- 引入bootstrap的js文件 -->
+	<script type="text/javascript" src="../js/bootstrap/bootstrap3/js/bootstrap.min.js"></script>
+
+	<!-- 引入表格的css和js文件 -->
+	<link rel="stylesheet" href="../js/bootstrap/bootstrap-table/bootstrap-table.css">
+	<script src="../js/bootstrap/bootstrap-table/bootstrap-table.js"></script>
+	<script src="../js/bootstrap/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+
+	<!-- 引入弹框的js文件 -->
+	<script src="../js/bootstrap/bootstrap-bootbox/bootbox.js"></script>
+
+	<!-- 引入日期得css和js文件 -->
+	<script src="../js/bootstrap/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+	<script src="../js/bootstrap/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+	<link rel="stylesheet" href="../js/bootstrap/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+
+
+	<link href="/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="/css/font-awesome.min.css" type="text/javascript" rel="stylesheet">
+	<link href="/css/bootsnav.css" type="text/css" rel="stylesheet">
+	<link href="/css/normalize.css" type="text/css" rel="stylesheet">
+	<link href="/css/css.css" rel="stylesheet" type="text/css">
+	<script src="/jss/jquery-1.11.0.min.js" type="text/javascript"></script>
+	<script src="/jss/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/jss/bootsnav.js" type="text/javascript"></script>
+	<script src="/jss/jquery.js" type="text/javascript"></script>
+	<!--[if IE]>
+	<script src="/static/jss/html5.js"></script><![endif]-->
+<title>登录</title>
+</head>
+
+<body class="logobg_style">
+  	<div id="large-header" class="large-header login-page">
+  		<canvas id="demo-canvas" width="1590" height="711"></canvas>
+  		<div class="login-form">
+  			<div class="login-content">
+  				<h1 class="title_name">账户登录</h1>
+  				<form method="post" role="form" id="form_login" class="login_padding">
+				<div class="form-group clearfix">
+
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="icon_user"></i>
+						</div>
+
+						<input type="text" class="form-control" name="name" id="username" placeholder="账号" autocomplete="off">
+					</div>
+
+				</div>
+
+				<div class="form-group clearfix">
+
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="icon_password"></i>
+						</div>
+
+						<input type="password" class="form-control" name="pwd" id="password" placeholder="密码" autocomplete="off">
+					</div>
+
+				</div>
+
+                  <div class="tishi"></div>
+				<div class="form-group">
+					<a href="javascript:;" type="submit" class="btn btn-danger btn-block btn-login" onClick="cliLogin()">
+						<i class="fa fa-sign-in"></i>
+						登录
+					</a>
+				</div>
+				<!--<div class=" textright"><a href="/page/toregistered" class="forget">立即注册</a></div>-->
+					<div class=" textright"><a href="/user/toindex2" class="forget">快捷登陆</a></div>
+				<!-- Implemented in v1.1.4 -->				<div class="form-group">
+					
+				</div>
+
+
+
+	
+			</form>
+  			</div>
+  			
+  		</div>
+  	</div>
+  	
+<script src="/jss/TweenLite/TweenLite.min.js"></script>
+<script src="/jss/TweenLite/EasePack.min.js"></script>
+<script src="/jss/TweenLite/rAF.js"></script>
+<script src="/jss/TweenLite/demo-1.js"></script>
+</body>
+<script type="text/javascript">
+	function cliLogin(){
+		$.ajax({
+			url:"/user/login",
+			type:"post",
+			data:$("#form_login").serialize(),
+			success:function(data){
+				bootbox.alert({
+					size: "small",
+					title: "提示",
+					message: data,
+					callback: function(){}
+				});
+				if(data=="登录成功！！"){
+					location.href="../api-a/page/toindex"
+				}
+			}
+		})
+	}
+	</script>
+</html>

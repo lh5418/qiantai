@@ -8,8 +8,8 @@ mybatis:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    password: root
-    url: jdbc:mysql://127.0.0.1:3306/20067?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    password:
+    url: jdbc:mysql://127.0.0.1:3306/20068?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
     username: root
   redis:
     host: 127.0.0.1
@@ -35,9 +35,8 @@ zuul:
     api-a:
       path: /api-a/**
       serviceId: feign
-      sensitiveHeaders: "*"
   host:
-    socket-timeout-millis: 1200
-    connect-timeout-millis: 1200
-
+    socket-timeout-millis: 12000
+    connect-timeout-millis: 12000
+  sensitive-headers:
 
